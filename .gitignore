@@ -21,16 +21,39 @@ plant_diary_web/plant_diary.db
 # 照片和上傳文件
 plant_photos/
 plant_diary_web/plant_photos/
+PHOTO/
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+*.bmp
+*.ico
+
+# 設計文件和大型媒體文件
+*.afdesign
+*.afphoto
+*.ai
+*.psd
+*.eps
+*.bb
+*.ezpx
+
+# PDF 文件（如果很大，可選，目前保留）
+# *.pdf
 
 # 環境變數和敏感信息
 .env
 .env.local
 *.key
+*.pem
+*.cert
 
 # 系統文件
 .DS_Store
 Thumbs.db
 *.log
+desktop.ini
 
 # IDE
 .vscode/
@@ -38,9 +61,22 @@ Thumbs.db
 *.swp
 *.swo
 *~
+.cursor/
 
 # 臨時文件
 *.tmp
 *.bak
 *.cache
+*.old
+*~
 
+# 壓縮文件（如果需要排除）
+# *.zip
+# *.rar
+# *.7z
+
+# 用戶上傳的文件
+uploads/
+user_data/
+temp/
+tmp/
