@@ -179,9 +179,16 @@ def get_current_user():
 @app.route('/api/plants', methods=['GET'])
 @login_required
 def get_plants():
-    """獲取所有植物列表"""
+    """獲取所有植物列表，包含照片數量"""
     plants = db.get_all_plants()
-    return jsonify([dict(plant) for plant in plants])
+    result = []
+    for plant in plants:
+        plant_dict = dict(plant)
+        # 獲取照片數量
+        photos = db.get_plant_photos(plant_dict['id'])
+        plant_dict['photo_count'] = len(photos)
+        result.append(plant_dict)
+    return jsonify(result)
 
 
 @app.route('/api/plants', methods=['POST'])
