@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PrintJob xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <GraphicMode>false</GraphicMode>
+  <FormatVersion>1</FormatVersion>
+  <QLabelSDKVersion>1.5.8346.25091</QLabelSDKVersion>
+  <GoLabelZoomFactor>0.5</GoLabelZoomFactor>
+  <Label>
+    <Scale>
+      <ComName>COM1</ComName>
+      <Baudrate>9600</Baudrate>
+      <Parity>N</Parity>
+      <DataBit>8</DataBit>
+      <StopBit>1</StopBit>
+    </Scale>
+    <SerialFormat>
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+    </SerialFormat>
+    <SerialLeadingCode>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+      <int>0</int>
+    </SerialLeadingCode>
+    <SerialCustomSequence>
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+    </SerialCustomSequence>
+    <bSerialSpecialCarry>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+    </bSerialSpecialCarry>
+    <VariableFormat>
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
+    </VariableFormat>
+    <GroupList />
+    <qlabel>
+      <GraphicShape xsi:type="Text" Style="Cross" IsPrint="true" PageAlignment="None" Locked="true" bStroke="true" bFill="true" Direction="Angle0" X="156" Y="58" Alignment="Left" AlignPointX="156" AlignPointY="58" FontScript="Default" FontCmd="細明體,18&#xD;&#xA;" FontType="DownLoad_Asia_Font_3" TextSpace="0" Encoding="A" FontId="A" FontHeight="2" FontWidth="2" IsInverse="false" IsUTF8="true" IsCheckDigit="false" UsePrinterClock="true">
+        <qHitOnCircumferance>false</qHitOnCircumferance>
+        <Selected>false</Selected>
+        <iBackground_color>4294967295</iBackground_color>
+        <Id>15</Id>
+        <ItemLabel>Text_15</ItemLabel>
+        <ObjectDrawMode>FW</ObjectDrawMode>
+        <Name>A</Name>
+        <GroupID>0</GroupID>
+        <GroupSelected>false</GroupSelected>
+        <bReplaceSpecialCharFromDB>false</bReplaceSpecialCharFromDB>
+        <CharFilterRule>None</CharFilterRule>
+        <LinkMode>OriginalData</LinkMode>
+        <GraphicMode>false</GraphicMode>
+        <ReplaceInfoItems />
+        <FormatType>None</FormatType>
+        <P1 />
+        <P2 />
+        <P3 />
+        <P4 />
+        <DataField>None</DataField>
+        <Prompt>None</Prompt>
+        <BoundRectWidth>191.999985</BoundRectWidth>
+        <DispData>黑肌普洛</DispData>
+        <bRemovePreZeroAndEmpty>false</bRemovePreZeroAndEmpty>
+        <Data>黑肌普洛</Data>
+        <ItemInfoList>
+          <Item>
+            <ItemSymbol>1</ItemSymbol>
+            <ItemData>黑肌普洛</ItemData>
+          </Item>
+        </ItemInfoList>
+        <BoundRectHeight>57.5624962</BoundRectHeight>
+        <BoundRect>
+          <Location>
+            <X>156</X>
+            <Y>58</Y>
+          </Location>
+          <Size>
+            <Width>191.999985</Width>
+            <Height>57.5624962</Height>
+          </Size>
+          <X>156</X>
+          <Y>58</Y>
+          <Width>191.999985</Width>
+          <Height>57.5624962</Height>
+        </BoundRect>
+        <NormalRatio>true</NormalRatio>
+        <BTrueType>true</BTrueType>
+      </GraphicShape>
+      <GraphicShape xsi:type="Text" Style="Cross" IsPrint="true" PageAlignment="None" Locked="true" bStroke="true" bFill="true" Direction="Angle0" X="14" Y="38" Alignment="Left" AlignPointX="14" AlignPointY="38" FontScript="Default" FontCmd="細明體,18&#xD;&#xA;" FontType="DownLoad_Asia_Font_3" TextSpace="0" Encoding="Default" FontId="Default" FontHeight="1" FontWidth="1" IsInverse="false" IsUTF8="true" IsCheckDigit="false" UsePrinterClock="true">
+        <qHitOnCircumferance>false</qHitOnCircumferance>
+        <Selected>false</Selected>
+        <iBackground_color>4294967295</iBackground_color>
+        <Id>16</Id>
+        <ItemLabel>Text_16</ItemLabel>
+        <ObjectDrawMode>FW</ObjectDrawMode>
+        <Name>A</Name>
+        <GroupID>0</GroupID>
+        <GroupSelected>false</GroupSelected>
+        <bReplaceSpecialCharFromDB>false</bReplaceSpecialCharFromDB>
+        <CharFilterRule>None</CharFilterRule>
+        <LinkMode>OriginalData</LinkMode>
+        <GraphicMode>false</GraphicMode>
+        <ReplaceInfoItems />
+        <FormatType>None</FormatType>
+        <P1 />
+        <P2 />
+        <P3 />
+        <P4 />
+        <DataField>None</DataField>
+        <Prompt>None</Prompt>
+        <BoundRectWidth>47.9999962</BoundRectWidth>
+        <DispData>童話
+花園</DispData>
+        <bRemovePreZeroAndEmpty>false</bRemovePreZeroAndEmpty>
+        <Data>童話
+花園</Data>
+        <ItemInfoList>
+          <Item>
+            <ItemSymbol>1</ItemSymbol>
+            <ItemData>童話
+花園</ItemData>
+          </Item>
+        </ItemInfoList>
+        <BoundRectHeight>57.5624962</BoundRectHeight>
+        <BoundRect>
+          <Location>
+            <X>14</X>
+            <Y>38</Y>
+          </Location>
+          <Size>
+            <Width>47.9999962</Width>
+            <Height>57.5624962</Height>
+          </Size>
+          <X>14</X>
+          <Y>38</Y>
+          <Width>47.9999962</Width>
+          <Height>57.5624962</Height>
+        </BoundRect>
+        <NormalRatio>true</NormalRatio>
+        <BTrueType>true</BTrueType>
+      </GraphicShape>
+      <GraphicShape xsi:type="Text" Style="Cross" IsPrint="true" PageAlignment="None" Locked="true" bStroke="true" bFill="true" Direction="Angle0" X="160" Y="18" Alignment="Left" AlignPointX="160" AlignPointY="18" FontScript="Default" FontCmd="Microsoft Sans Serif,12&#xD;&#xA;" FontType="BuiltIn_Bitmap_Font" TextSpace="0" Encoding="Default" FontId="C" FontHeight="1" FontWidth="1" IsInverse="false" IsUTF8="true" IsCheckDigit="false" UsePrinterClock="true">
+        <qHitOnCircumferance>false</qHitOnCircumferance>
+        <Selected>false</Selected>
+        <iBackground_color>4294967295</iBackground_color>
+        <Id>2</Id>
+        <ItemLabel>Text_2</ItemLabel>
+        <ObjectDrawMode>FW</ObjectDrawMode>
+        <Name>A</Name>
+        <GroupID>0</GroupID>
+        <GroupSelected>false</GroupSelected>
+        <bReplaceSpecialCharFromDB>false</bReplaceSpecialCharFromDB>
+        <CharFilterRule>None</CharFilterRule>
+        <LinkMode>OriginalData</LinkMode>
+        <GraphicMode>false</GraphicMode>
+        <ReplaceInfoItems />
+        <FormatType>None</FormatType>
+        <P1 />
+        <P2 />
+        <P3 />
+        <P4 />
+        <DataField>None</DataField>
+        <Prompt>None</Prompt>
+        <BoundRectWidth>421.5454</BoundRectWidth>
+        <DispData>Philodendron plowmanii 'Blackface'</DispData>
+        <bRemovePreZeroAndEmpty>false</bRemovePreZeroAndEmpty>
+        <Data>Philodendron plowmanii 'Blackface'</Data>
+        <ItemInfoList>
+          <Item>
+            <ItemSymbol>1</ItemSymbol>
+            <ItemData>Philodendron plowmanii 'Blackface'</ItemData>
+          </Item>
+        </ItemInfoList>
+        <BoundRectHeight>30.1640625</BoundRectHeight>
+        <BoundRect>
+          <Location>
+            <X>160</X>
+            <Y>18</Y>
+          </Location>
+          <Size>
+            <Width>421.5454</Width>
+            <Height>30.1640625</Height>
+          </Size>
+          <X>160</X>
+          <Y>18</Y>
+          <Width>421.5454</Width>
+          <Height>30.1640625</Height>
+        </BoundRect>
+        <NormalRatio>true</NormalRatio>
+        <BTrueType>true</BTrueType>
+      </GraphicShape>
+      <GraphicShape xsi:type="Image" Style="Cross" IsPrint="true" PageAlignment="None" Locked="true" bStroke="true" bFill="true" Direction="Angle0" X="46" Alignment="Center" AlignPointX="46" AlignPointY="0" FontScript="Default" FixedRatio="true">
+        <qHitOnCircumferance>false</qHitOnCircumferance>
+        <Selected>false</Selected>
+        <iBackground_color>4294967295</iBackground_color>
+        <Id>0</Id>
+        <ItemLabel>Image_0</ItemLabel>
+        <ObjectDrawMode>FW</ObjectDrawMode>
+        <Name>Y</Name>
+        <GroupID>0</GroupID>
+        <GroupSelected>false</GroupSelected>
+        <bReplaceSpecialCharFromDB>false</bReplaceSpecialCharFromDB>
+        <CharFilterRule>None</CharFilterRule>
+        <LinkMode>OriginalData</LinkMode>
+        <GraphicMode>false</GraphicMode>
+        <ReplaceInfoItems />
+        <FormatType>None</FormatType>
+        <P1 />
+        <P2 />
+        <P3 />
+        <P4 />
+        <DataField>None</DataField>
+        <Prompt>None</Prompt>
+        <BoundRectWidth>113</BoundRectWidth>
+        <DispData>1234</DispData>
+        <bRemovePreZeroAndEmpty>false</bRemovePreZeroAndEmpty>
+        <Data />
+        <ItemInfoList />
+        <BoundRectHeight>119</BoundRectHeight>
+        <BoundRect>
+          <Location>
+            <X>46</X>
+            <Y>0</Y>
+          </Location>
+          <Size>
+            <Width>113</Width>
+            <Height>119</Height>
+          </Size>
+          <X>46</X>
+          <Y>0</Y>
+          <Width>113</Width>
+          <Height>119</Height>
+        </BoundRect>
+        <BitmapCmd>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</BitmapCmd>
+        <FixedAspectRatio>false</FixedAspectRatio>
+        <LoadToDevice>false</LoadToDevice>
+        <FileName>C:\Users\高民晟\Dropbox\童話花園\LOGO\FairyFern_logo.Resize.bmp</FileName>
+        <Identifier />
+        <DitherType>Default</DitherType>
+        <RotationFlip>RotateNoneFlipNone</RotationFlip>
+        <Angle>0</Angle>
+        <Binverse>false</Binverse>
+      </GraphicShape>
+    </qlabel>
+    <VariableOpFormat />
+    <VariableOption />
+    <DateFormat>y2-me-dd</DateFormat>
+    <TimeFormat>h:m:s</TimeFormat>
+    <DataBaseFormat>None</DataBaseFormat>
+    <DataBaseFilePath />
+    <DataBaseSelection />
+    <UserID />
+    <Password>zhsTbm6nT9o+RQurpwH5Hw==</Password>
+    <EncryptPwd>true</EncryptPwd>
+    <DatabaseNoHeader>false</DatabaseNoHeader>
+    <IntegratedSecurity>false</IntegratedSecurity>
+    <RowIndex>0</RowIndex>
+  </Label>
+  <Setup bInfinityPrint="false" LabelLength="15" LabelWidth="108" LeftMargin="0" TopMargin="0" LabelType="0" GapLength="3" FeedLength="0" ZSign="45" BlackMark="0" Position="0" Speed="2" Copy="1" bCopyDataBase="false" CopyField="None" Stripper="0" LabelsPerCut="0" DoubleCut_Enable="false" DoubleCut_OffsetLen="0" DoubleCut_FirstCutMode="1" Rotate180="255" Stop="18" Darkness="15" Number="1" bCutDataBase="false" bBatchCut="false" bNumberDataBase="false" NumberField="None" PageDirection="Portrait" PrintMode="0" PowerRFID="0" LengthRFID="-1" RetryRFID="1" DrawMode="0">
+    <Layout Shape="0" AcrossType="Copied" PageDirection="Portrait" HorAcross="1" VerAcross="1" HorGap="0" VerGap="0" HorAcrossMode1="1" VerAcrossMode1="1" LabelMode="0" HorGapMode1="0" VerGapMode1="0" BottomMargin="0" RightMargin="0" />
+    <Description>&#x0;
+Lang:(zh-HK) OS:Microsoft Windows NT 10.0.19044.0(Win32NT)
+Lang:(zh-HK) OS:Microsoft Windows NT 10.0.19045.0(Win32NT)</Description>
+    <UnitType>Mm</UnitType>
+    <Dpi>203</Dpi>
+  </Setup>
+  <DriverName />
+  <PrinterModel>EZ120</PrinterModel>
+  <PrinterLanguage>EZPL</PrinterLanguage>
+  <USBName>GODEX EZ120#230507D3</USBName>
+  <COMName />
+  <CommunicationType>USB</CommunicationType>
+  <NetworkIPAddress>0</NetworkIPAddress>
+  <NetworkPort>9100</NetworkPort>
+  <BaudRate>9600</BaudRate>
+  <ComSettings>N81</ComSettings>
+  <StandaloneDbSearchKey />
+  <StandaloneDbEnable>false</StandaloneDbEnable>
+</PrintJob>

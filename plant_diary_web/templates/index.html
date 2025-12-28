@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>植物日記 - Web 版</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", sans-serif;
+            background: #f5f5f5;
+            padding: 10px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .header-content {
+            text-align: center;
+            flex: 1;
+        }
+        
+        h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+        
+        .main-content {
+            background: white;
+            padding: 20px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        
+        .btn:hover {
+            background: #45a049;
+        }
+        
+        .btn-secondary {
+            background: #2196F3;
+        }
+        
+        .btn-secondary:hover {
+            background: #0b7dda;
+        }
+        
+        .btn-danger {
+            background: #f44336;
+        }
+        
+        .btn-danger:hover {
+            background: #da190b;
+        }
+        
+        .plant-list {
+            margin-top: 20px;
+        }
+        
+        .plant-item {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .plant-item:hover {
+            background: #f0f0f0;
+        }
+        
+        .plant-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .plant-scientific {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            overflow-y: auto;
+        }
+        
+        .modal-content {
+            background: white;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+        }
+        
+        .close {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #999;
+        }
+        
+        .close:hover {
+            color: #000;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .photo-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .photo-item {
+            position: relative;
+            border-radius: 5px;
+            overflow: hidden;
+            background: #f0f0f0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .photo-checkbox {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 24px;
+            height: 24px;
+            z-index: 10;
+            cursor: pointer;
+            accent-color: #2196F3;
+        }
+        
+        .photo-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            max-height: 400px;
+            object-fit: contain;
+            background: #f9f9f9;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        @media (max-width: 600px) {
+            .modal-content {
+                width: 95%;
+                margin: 10px auto;
+            }
+            
+            header {
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .header-content {
+                text-align: center;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .subtitle {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>🌱 植物日記</h1>
+                <div class="subtitle">植物成長記錄與管理</div>
+            </div>
+            <div style="margin-left: auto;">
+                <span id="userInfo" style="margin-right: 15px; font-size: 14px;"></span>
+                <button class="btn" onclick="logout()" style="padding: 8px 16px; font-size: 14px;">登出</button>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <button class="btn" onclick="showAddPlantModal()">+ 添加新植物</button>
+            <button class="btn btn-secondary" onclick="loadPlants()">🔄 刷新列表</button>
+            
+            <div class="plant-list" id="plantList">
+                <div class="loading">載入中...</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 添加植物模態框 -->
+    <div id="addPlantModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addPlantModal')">&times;</span>
+            <h2>添加新植物</h2>
+            
+            <button class="btn btn-secondary" onclick="showOCRModal()" style="margin-bottom: 15px;">
+                📷 從照片識別
+            </button>
+            
+            <form id="addPlantForm">
+                <div class="form-group">
+                    <label>中文名稱 *</label>
+                    <input type="text" id="chineseName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>學名</label>
+                    <input type="text" id="scientificName">
+                </div>
+                
+                <div class="form-group">
+                    <label>備註</label>
+                    <textarea id="notes"></textarea>
+                </div>
+                
+                <button type="submit" class="btn">保存</button>
+                <button type="button" class="btn btn-danger" onclick="closeModal('addPlantModal')">取消</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- OCR 識別模態框 -->
+    <div id="ocrModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('ocrModal')">&times;</span>
+            <h2>從照片識別</h2>
+            
+            <div class="form-group">
+                <label>選擇植物花牌照片</label>
+                <input type="file" id="ocrPhoto" accept="image/*" capture="environment">
+            </div>
+            
+            <button class="btn" onclick="recognizePhoto()">開始識別</button>
+            <div id="ocrResult" style="margin-top: 15px;"></div>
+        </div>
+    </div>
+    
+    <!-- 植物詳情模態框 -->
+    <div id="plantDetailModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('plantDetailModal')">&times;</span>
+            <h2 id="detailPlantName"></h2>
+            <p id="detailScientificName" style="color: #666; margin-bottom: 20px;"></p>
+            
+            <div class="form-group">
+                <label>上傳照片</label>
+                <input type="file" id="plantPhoto" accept="image/*">
+                <textarea id="photoNotes" placeholder="照片備註（可選）" style="margin-top: 10px;"></textarea>
+                <button class="btn" onclick="uploadPhoto()" style="margin-top: 10px;">上傳照片</button>
+            </div>
+            
+            <div id="analyzeButtonContainer" style="margin: 20px 0; display: none;">
+                <button class="btn" onclick="analyzeSelectedPhotos()" style="background: #2196F3; color: white;">
+                    🤖 AI 分析選中的照片
+                </button>
+                <span id="selectedCount" style="margin-left: 10px; color: #666; font-size: 14px;"></span>
+            </div>
+            
+            <h3 style="margin-top: 20px;">成長歷程</h3>
+            <div class="photo-grid" id="photoGrid"></div>
+        </div>
+    </div>
+    
+    <script>
+        let currentPlantId = null;
+        let currentUser = null;
+        
+        // 載入當前用戶信息
+        async function loadCurrentUser() {
+            try {
+                const response = await fetch('/api/user/current');
+                const result = await response.json();
+                if (result.success) {
+                    currentUser = result.user;
+                    updateUserInfo();
+                } else {
+                    // 未登入，跳轉到登入頁面
+                    window.location.href = '/login';
+                }
+            } catch (error) {
+                console.error('載入用戶信息失敗:', error);
+                window.location.href = '/login';
+            }
+        }
+        
+        // 更新用戶信息顯示
+        function updateUserInfo() {
+            const userInfoDiv = document.getElementById('userInfo');
+            if (currentUser && userInfoDiv) {
+                let info = `歡迎，${currentUser.username}`;
+                if (currentUser.is_admin) {
+                    info += ' (管理員)';
+                }
+                userInfoDiv.textContent = info;
+            }
+        }
+        
+        // 登出
+        async function logout() {
+            if (!confirm('確定要登出嗎？')) {
+                return;
+            }
+            
+            try {
+                const response = await fetch('/logout', {
+                    method: 'POST'
+                });
+                
+                const result = await response.json();
+                if (result.success) {
+                    window.location.href = '/login';
+                }
+            } catch (error) {
+                console.error('登出失敗:', error);
+            }
+        }
+        
+        // 頁面載入時獲取用戶信息
+        loadCurrentUser();
+        
+        // HTML轉義函數，防止XSS攻擊並正確顯示文本
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        // 格式化照顧建議文本，改善排版
+        function formatCareSuggestions(text) {
+            if (!text) return '';
+            
+            // HTML轉義
+            let formatted = escapeHtml(text);
+            
+            // 將多個連續空格/製表符轉換為單個空格
+            formatted = formatted.replace(/[ \t]+/g, ' ');
+            
+            // 處理Markdown格式的粗體（**文字**）
+            formatted = formatted.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+            
+            // 將文本按換行符分割
+            const lines = formatted.split('\n').map(line => line.trim()).filter(line => line);
+            
+            if (lines.length === 0) return '';
+            
+            // 將每行轉換為段落，讓文本在段落內自然流動（不強制換行）
+            return lines.map((line, index) => {
+                // 列表項（以數字開頭，後面跟著點和空格）
+                if (/^\d+\.\s/.test(line)) {
+                    return `<div style="margin-bottom: 10px; line-height: 1.8; text-align: left;">${line}</div>`;
+                } else {
+                    // 普通文本段落
+                    return `<div style="margin-bottom: ${index < lines.length - 1 ? '10px' : '0'}; line-height: 1.8; text-align: left;">${line}</div>`;
+                }
+            }).join('');
+        }
+        
+        // 載入植物列表
+        async function loadPlants() {
+            try {
+                const response = await fetch('/api/plants');
+                const plants = await response.json();
+                
+                const plantList = document.getElementById('plantList');
+                if (plants.length === 0) {
+                    plantList.innerHTML = '<div class="loading">還沒有添加植物，點擊上方按鈕添加第一個植物吧！</div>';
+                    return;
+                }
+                
+                plantList.innerHTML = plants.map(plant => `
+                    <div class="plant-item" onclick="showPlantDetail(${plant.id})">
+                        <div class="plant-name">${plant.chinese_name}</div>
+                        ${plant.scientific_name ? `<div class="plant-scientific">${plant.scientific_name}</div>` : ''}
+                    </div>
+                `).join('');
+            } catch (error) {
+                alert('載入植物列表失敗: ' + error.message);
+            }
+        }
+        
+        // 顯示添加植物模態框
+        function showAddPlantModal() {
+            document.getElementById('addPlantModal').style.display = 'block';
+            document.getElementById('addPlantForm').reset();
+        }
+        
+        // 顯示 OCR 識別模態框
+        function showOCRModal() {
+            document.getElementById('ocrModal').style.display = 'block';
+            document.getElementById('ocrResult').innerHTML = '';
+        }
+        
+        // 關閉模態框
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+        
+        // 填入欄位（從 Base64 編碼的字符串解碼）
+        function fillFieldFromEncoded(fieldId, encodedValue) {
+            try {
+                const decodedValue = decodeURIComponent(escape(atob(encodedValue)));
+                const field = document.getElementById(fieldId);
+                if (field) {
+                    field.value = decodedValue;
+                    field.dispatchEvent(new Event('input', { bubbles: true }));
+                    
+                    // 確保添加植物模態框是打開的
+                    const addPlantModal = document.getElementById('addPlantModal');
+                    if (addPlantModal.style.display !== 'block') {
+                        addPlantModal.style.display = 'block';
+                    }
+                    
+                    // 可選：關閉 OCR 模態框
+                    // closeModal('ocrModal');
+                }
+            } catch (error) {
+                console.error('解碼錯誤:', error);
+                alert('填入欄位時發生錯誤，請手動輸入');
+            }
+        }
+        
+        // 填入欄位（直接傳值，用於內部調用）
+        function fillField(fieldId, value) {
+            const field = document.getElementById(fieldId);
+            if (field) {
+                field.value = value;
+                field.dispatchEvent(new Event('input', { bubbles: true }));
+                
+                // 確保添加植物模態框是打開的
+                const addPlantModal = document.getElementById('addPlantModal');
+                if (addPlantModal.style.display !== 'block') {
+                    addPlantModal.style.display = 'block';
+                }
+            }
+        }
+        
+        // OCR 識別
+        async function recognizePhoto() {
+            const fileInput = document.getElementById('ocrPhoto');
+            if (!fileInput.files || !fileInput.files[0]) {
+                alert('請選擇照片');
+                return;
+            }
+            
+            const formData = new FormData();
+            formData.append('photo', fileInput.files[0]);
+            
+            const resultDiv = document.getElementById('ocrResult');
+            resultDiv.innerHTML = '<div class="loading">識別中...</div>';
+            
+            try {
+                const response = await fetch('/api/ocr/recognize', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                // 調試信息（可以在控制台查看）
+                console.log('OCR識別結果:', result);
+                console.log('原始文本:', result.raw_text);
+                console.log('是否有原始文本:', !!result.raw_text);
+                
+                if (result.success) {
+                    // 填充表單（確保添加植物模態框是打開的）
+                    const chineseName = result.chinese_name || '';
+                    const scientificName = result.scientific_name || '';
+                    
+                    // 確保添加植物模態框是打開的
+                    const addPlantModal = document.getElementById('addPlantModal');
+                    if (addPlantModal.style.display !== 'block') {
+                        addPlantModal.style.display = 'block';
+                    }
+                    
+                    // 填充表單字段
+                    const chineseNameInput = document.getElementById('chineseName');
+                    const scientificNameInput = document.getElementById('scientificName');
+                    
+                    if (chineseNameInput) {
+                        chineseNameInput.value = chineseName;
+                        // 觸發輸入事件以確保值被設置
+                        chineseNameInput.dispatchEvent(new Event('input', { bubbles: true }));
+                    }
+                    
+                    if (scientificNameInput) {
+                        scientificNameInput.value = scientificName;
+                        scientificNameInput.dispatchEvent(new Event('input', { bubbles: true }));
+                    }
+                    
+                    // 顯示識別結果
+                    let resultHtml = `
+                        <div style="background: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-bottom: 10px;">
+                            <strong>識別完成</strong><br>
+                            中文名稱: ${chineseName || '<span style="color: #856404;">未識別</span>'}<br>
+                            學名: ${scientificName || '<span style="color: #856404;">未識別</span>'}
+                        </div>
+                    `;
+                    
+                    // 始終顯示原始文本（用於調試和手動輸入）
+                    const rawText = result.raw_text || '';
+                    console.log('準備顯示的原始文本:', rawText);
+                    
+                    if (rawText && rawText.trim().length > 0) {
+                        // 將原始文本按行分割，每行提供選擇按鈕
+                        const textLines = rawText.toString().split('\n').filter(line => line.trim().length > 0);
+                        let textItemsHtml = '';
+                        
+                        textLines.forEach((line, index) => {
+                            // 安全地轉義 HTML 和 JavaScript
+                            const escapedLine = line.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+                            // 使用 Base64 編碼來安全傳遞文本值，避免特殊字符問題
+                            const encodedLine = btoa(unescape(encodeURIComponent(line)));
+                            textItemsHtml += `
+                                <div style="display: flex; align-items: center; gap: 8px; padding: 6px; margin-bottom: 4px; background: #f8f9fa; border-radius: 4px; border: 1px solid #e0e0e0;">
+                                    <span style="flex: 1; font-family: 'Courier New', monospace; font-size: 13px; word-break: break-all;">${escapedLine}</span>
+                                    <button onclick="fillFieldFromEncoded('chineseName', '${encodedLine}')" style="background: #4CAF50; color: white; border: none; padding: 4px 10px; border-radius: 3px; cursor: pointer; font-size: 11px; white-space: nowrap;">填入中文名</button>
+                                    <button onclick="fillFieldFromEncoded('scientificName', '${encodedLine}')" style="background: #2196F3; color: white; border: none; padding: 4px 10px; border-radius: 3px; cursor: pointer; font-size: 11px; white-space: nowrap;">填入學名</button>
+                                </div>
+                            `;
+                        });
+                        
+                        resultHtml += `
+                            <div style="background: #e7f3ff; color: #004085; padding: 10px; border-radius: 5px; font-size: 12px; margin-top: 10px; border-left: 3px solid #2196F3;">
+                                <strong>📝 識別到的原始文本：</strong><br>
+                                <div style="margin-top: 8px; max-height: 300px; overflow-y: auto;">
+${textItemsHtml}
+                                </div>
+                                <div style="margin-top: 8px; color: #004085; font-size: 11px;">
+                                    <small>💡 點擊按鈕將文字填入對應欄位</small>
+                                </div>
+                            </div>
+                        `;
+                    } else {
+                        // 如果沒有原始文本，也顯示提示
+                        resultHtml += `
+                            <div style="background: #fff3cd; color: #856404; padding: 10px; border-radius: 5px; font-size: 12px; margin-top: 10px;">
+                                <small>⚠️ 未識別到任何文字（原始文本為空），請檢查照片清晰度或重試</small>
+                                <br><small style="color: #666;">調試信息: raw_text = "${rawText}"</small>
+                            </div>
+                        `;
+                    }
+                    
+                    // 統一設置結果HTML
+                    resultDiv.innerHTML = resultHtml;
+                    
+                    // 如果識別到內容，延遲關閉 OCR 模態框
+                    if (chineseName || scientificName) {
+                        // 延遲關閉，讓用戶看到結果
+                        setTimeout(() => {
+                            closeModal('ocrModal');
+                            // 確保添加植物模態框仍然打開
+                            addPlantModal.style.display = 'block';
+                        }, 2000);
+                    }
+                    // 如果沒有識別到內容，保持模態框打開，讓用戶查看原始文本
+                } else {
+                    resultDiv.innerHTML = `<div style="background: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px;">
+                        識別失敗: ${result.error || '未知錯誤'}
+                    </div>`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<div style="background: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px;">
+                    識別出錯: ${error.message}
+                </div>`;
+            }
+        }
+        
+        // 提交添加植物表單
+        document.getElementById('addPlantForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const data = {
+                chinese_name: document.getElementById('chineseName').value,
+                scientific_name: document.getElementById('scientificName').value,
+                notes: document.getElementById('notes').value
+            };
+            
+            try {
+                const response = await fetch('/api/plants', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    alert('植物已添加！');
+                    closeModal('addPlantModal');
+                    loadPlants();
+                } else {
+                    alert('添加失敗: ' + (result.error || '未知錯誤'));
+                }
+            } catch (error) {
+                alert('添加失敗: ' + error.message);
+            }
+        });
+        
+        // 顯示植物詳情
+        async function showPlantDetail(plantId) {
+            currentPlantId = plantId;
+            
+            try {
+                const response = await fetch(`/api/plants/${plantId}`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    const plant = data.plant;
+                    document.getElementById('detailPlantName').textContent = plant.chinese_name;
+                    document.getElementById('detailScientificName').textContent = plant.scientific_name || '';
+                    
+                    // 載入照片
+                    const photoGrid = document.getElementById('photoGrid');
+                    const analyzeButtonContainer = document.getElementById('analyzeButtonContainer');
+                    
+                    if (data.photos && data.photos.length > 0) {
+                        const currentPlantIdForDelete = plantId;  // 保存 plantId 用於刪除功能
+                        const photosWithoutAnalysis = data.photos.filter(photo => !photo.ai_analysis && !photo.care_suggestions);
+                        
+                        // 如果有未分析的照片，顯示分析按鈕
+                        if (photosWithoutAnalysis.length > 0) {
+                            analyzeButtonContainer.style.display = 'block';
+                            updateSelectedCount();
+                        } else {
+                            analyzeButtonContainer.style.display = 'none';
+                        }
+                        
+                        photoGrid.innerHTML = data.photos.map(photo => {
+                            const filename = photo.photo_path.split(/[/\\]/).pop();
+                            const hasAnalysis = photo.ai_analysis || photo.care_suggestions;
+                            
+                            // 清理照顧建議文本，移除可能重複的前綴
+                            let cleanedSuggestions = '';
+                            if (photo.care_suggestions) {
+                                cleanedSuggestions = photo.care_suggestions.trim();
+                                // 如果以"照顧建議："或"建議："開頭，移除它（因為標題已經有"照顧建議："了）
+                                if (cleanedSuggestions.startsWith('照顧建議：')) {
+                                    cleanedSuggestions = cleanedSuggestions.substring(5).trim();
+                                } else if (cleanedSuggestions.startsWith('建議：')) {
+                                    cleanedSuggestions = cleanedSuggestions.substring(3).trim();
+                                } else if (cleanedSuggestions.startsWith('建議')) {
+                                    cleanedSuggestions = cleanedSuggestions.substring(2).trim();
+                                }
+                            }
+                            
+                            const analysisHtml = hasAnalysis ? `
+                                <div style="padding: 10px; background: #f9f9f9; border-top: 1px solid #ddd; font-size: 14px;">
+                                    ${photo.ai_analysis ? `
+                                        <div style="margin-bottom: 10px;">
+                                            <strong style="color: #4CAF50; font-size: 15px;">🤖 AI 分析：</strong>
+                                            <div style="margin-top: 5px; color: #333; white-space: pre-wrap; line-height: 1.7; font-size: 14px; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">${escapeHtml(photo.ai_analysis)}</div>
+                                        </div>
+                                    ` : ''}
+                                    ${cleanedSuggestions ? `
+                                        <div style="margin-top: ${photo.ai_analysis ? '10px' : '0'};">
+                                            <strong style="color: #2196F3; font-size: 15px;">💡 照顧建議：</strong>
+                                            <div style="margin-top: 5px; color: #333; line-height: 1.8; font-size: 14px; word-wrap: break-word; overflow-wrap: break-word; text-align: left;">${formatCareSuggestions(cleanedSuggestions)}</div>
+                                        </div>
+                                    ` : ''}
+                                </div>
+                            ` : `
+                                <div style="padding: 10px; background: #fff3cd; border-top: 1px solid #ddd; font-size: 12px; color: #856404;">
+                                    ⏳ AI 分析中或尚未分析...
+                                </div>
+                            `;
+                            const notesHtml = photo.notes ? `
+                                <div style="padding: 8px 10px; background: #fff; border-top: 1px solid #eee; font-size: 12px; color: #666;">
+                                    <strong>📝 備註：</strong> ${photo.notes}
+                                </div>
+                            ` : '';
+                            
+                            const takenAt = photo.taken_at ? new Date(photo.taken_at).toLocaleString('zh-TW') : '';
+                            const dateHtml = takenAt ? `
+                                <div style="padding: 8px 10px; background: #f5f5f5; border-top: 1px solid #eee; font-size: 14px; color: #666; font-weight: 500;">
+                                    📅 ${takenAt}
+                                </div>
+                            ` : '';
+                            
+                            // 如果沒有AI分析，添加複選框
+                            const checkboxHtml = !hasAnalysis ? `
+                                <input type="checkbox" class="photo-checkbox" data-photo-id="${photo.id}" onchange="updateSelectedCount()">
+                            ` : '';
+                            
+                            return `<div class="photo-item" data-photo-id="${photo.id}" style="background: white; position: relative;">
+                                ${checkboxHtml}
+                                <button onclick="deletePhoto(${photo.id}, ${currentPlantIdForDelete})" style="position: absolute; top: 10px; right: 10px; background: rgba(244, 67, 54, 0.9); color: white; border: none; border-radius: 50%; width: 32px; height: 32px; cursor: pointer; font-size: 18px; line-height: 1; z-index: 10; box-shadow: 0 2px 5px rgba(0,0,0,0.2);" title="刪除照片">×</button>
+                                <img src="/uploads/${filename}" alt="照片">
+                                ${dateHtml}
+                                ${notesHtml}
+                                ${analysisHtml}
+                            </div>`;
+                        }).join('');
+                    } else {
+                        photoGrid.innerHTML = '<div class="loading">還沒有照片</div>';
+                        analyzeButtonContainer.style.display = 'none';
+                    }
+                    
+                    document.getElementById('plantDetailModal').style.display = 'block';
+                }
+            } catch (error) {
+                alert('載入植物詳情失敗: ' + error.message);
+            }
+        }
+        
+        // 更新選中數量顯示
+        function updateSelectedCount() {
+            const checkboxes = document.querySelectorAll('.photo-checkbox:checked');
+            const count = checkboxes.length;
+            const countSpan = document.getElementById('selectedCount');
+            if (countSpan) {
+                if (count > 0) {
+                    countSpan.textContent = `已選擇 ${count} 張照片`;
+                    countSpan.style.color = '#2196F3';
+                    countSpan.style.fontWeight = 'bold';
+                } else {
+                    countSpan.textContent = '';
+                }
+            }
+        }
+        
+        // 分析選中的照片
+        async function analyzeSelectedPhotos() {
+            const checkboxes = document.querySelectorAll('.photo-checkbox:checked');
+            const photoIds = Array.from(checkboxes).map(cb => parseInt(cb.dataset.photoId));
+            
+            if (photoIds.length === 0) {
+                alert('請先選擇要分析的照片');
+                return;
+            }
+            
+            if (!confirm(`確定要分析 ${photoIds.length} 張照片嗎？這可能需要一些時間。`)) {
+                return;
+            }
+            
+            try {
+                const response = await fetch('/api/photos/analyze', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ photo_ids: photoIds })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    alert(`已開始分析 ${photoIds.length} 張照片，分析結果將在完成後自動更新。`);
+                    
+                    // 取消選中所有複選框
+                    checkboxes.forEach(cb => cb.checked = false);
+                    updateSelectedCount();
+                    
+                    // 等待幾秒後刷新顯示（讓用戶看到更新）
+                    setTimeout(() => {
+                        if (currentPlantId) {
+                            showPlantDetail(currentPlantId);
+                        }
+                    }, 3000);
+                    
+                    // 定期檢查分析結果（每5秒檢查一次，最多檢查10次）
+                    let checkCount = 0;
+                    const checkInterval = setInterval(() => {
+                        checkCount++;
+                        if (currentPlantId) {
+                            showPlantDetail(currentPlantId);
+                        }
+                        if (checkCount >= 10) {
+                            clearInterval(checkInterval);
+                        }
+                    }, 5000);
+                } else {
+                    alert('開始分析失敗: ' + (result.error || '未知錯誤'));
+                }
+            } catch (error) {
+                alert('開始分析失敗: ' + error.message);
+            }
+        }
+        
+        // 刪除照片
+        async function deletePhoto(photoId, plantId) {
+            if (!confirm('確定要刪除這張照片嗎？此操作無法復原。')) {
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/api/photos/${photoId}`, {
+                    method: 'DELETE'
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    alert('照片已刪除');
+                    // 重新載入植物詳情以更新照片列表
+                    showPlantDetail(plantId);
+                } else {
+                    alert('刪除失敗: ' + (result.error || '未知錯誤'));
+                }
+            } catch (error) {
+                alert('刪除失敗: ' + error.message);
+            }
+        }
+        
+        // 上傳照片
+        async function uploadPhoto() {
+            if (!currentPlantId) {
+                alert('請先選擇植物');
+                return;
+            }
+            
+            const fileInput = document.getElementById('plantPhoto');
+            if (!fileInput.files || !fileInput.files[0]) {
+                alert('請選擇照片');
+                return;
+            }
+            
+            const formData = new FormData();
+            formData.append('photo', fileInput.files[0]);
+            formData.append('notes', document.getElementById('photoNotes').value);
+            
+            try {
+                const response = await fetch(`/api/plants/${currentPlantId}/photos`, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    alert('照片已上傳！');
+                    fileInput.value = '';
+                    document.getElementById('photoNotes').value = '';
+                    showPlantDetail(currentPlantId);
+                } else {
+                    alert('上傳失敗: ' + (result.error || '未知錯誤'));
+                }
+            } catch (error) {
+                alert('上傳失敗: ' + error.message);
+            }
+        }
+        
+        // 點擊模態框外部關閉
+        window.onclick = function(event) {
+            const modals = document.getElementsByClassName('modal');
+            for (let modal of modals) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+        }
+        
+        // 頁面載入時載入植物列表
+        loadPlants();
+    </script>
+</body>
+</html>
+

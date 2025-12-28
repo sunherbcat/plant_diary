@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+*.pyc
+.pytest_cache/
+.coverage
+htmlcov/
+
+# 數據庫文件
+*.db
+plant_diary.db
+plant_diary_web/plant_diary.db
+
+# 照片和上傳文件
+plant_photos/
+plant_diary_web/plant_photos/
+
+# 環境變數和敏感信息
+.env
+.env.local
+*.key
+
+# 系統文件
+.DS_Store
+Thumbs.db
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 臨時文件
+*.tmp
+*.bak
+*.cache
+
